@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ONScripter-EN Devkit - Guide</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="content">
+            <p class="left"><a rel="home" href="../index.html">retour</a></p>
+            <h1>ONScripter-EN full guide: 0 - Informations additionnelles</h1>
+
+            <p>Bienvenue !</p>
+            <p>Avant que vous ne commenciez à lire, sachez que ce guide n'a pas pour <i>intention</i> d'être pour de complets débutants, il est <i>possible</i> de lire ceci plutôt que le guide de démarrage rapide si vous le souhaitez vraiment. Bien que tous les fondamentaux de l’utilisation du moteur seront abordés, comme dans les deux guides de démarrage rapide, Il y aura beaucoup plus de théories et de discussions, et un rythme plus lent par dessus, se rapprochant plus d'un livre qu'un tutoriel textuel - mais si c'est votre truc, cela vous mênera à une compréhension plus détaillée et nuancée.</p>
+            <p>Cela étant dit, ce guide n'est pas exhaustif. Pour une compréhension complète du moteur, ses capacités, et comment les exploiter, vous devrez vous familiariser avec la référence API. De plus, il vous faudra accumuler de l'expérience, que cela soit en <i>s'inspirant</i> ou en travaillant sur des jeux existants, ou en faisant le votre.</p>
+            <p>Cependant, ce kit de développement dans son ensemble vise à vous fournir les éléments dont vous pourriez avoir besoin, nommé (1) un guide structuré, (2) bonne documentation de référence, et (3) le matériel requis pour utiliser et expérimenter avec le moteur. Tout ce qui manque est votre motivation.</p>
+
+            <h2>Comparaison à des moteurs similaires</h2>
+            <p>Avec un peu de lecture, vous saurais maitenant depuis l'introduction générale qu'ONScripter-EN descend d'ONScripter, qui a son tour est basé sur NScripter. Cependant, je vais vous présenter ici une brève comparaison d'ONScripter-EN avec les autres moteurs de la même famille, ainsi vous comprendrez que la niche qu'il remplie et comment il excelle au dessus du reste, spécialement depuis 2023. Vous verrez que, pour un projet non japonais (et même pour beaucoup d'autre), ONScripter-EN est le choix par défaut. ONScripterYuri avait quelques fonctionnalités et attraits intéressants, et qu'il est le réel concurrent à ONScripter-EN pour 99% des nouveaux projets.</p>
+
+
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Niche</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>NScripter</td>
+                    <td>L'original; Moteur de visual novel de l'ancienne école. Code source non disponible</td>
+                    <td>Abandonné (?) depuis 2018, Disponible unique sur Windows</td>
+                </tr>
+                <tr>
+                    <td>ONScripter</td>
+                    <td>Open-source, cross-platform</td>
+                    <td>Développement arrêté, support de l'anglais pauvre, derrière ONScripter-EN en fonctionnalté</td>
+                </tr>
+                <tr>
+                    <td>PONScripter</td>
+                    <td>Support des polices proportionnelles (principalement)</td>
+                    <td>Abandonné depuis 2011; Support des polices proportionnelles actuellement dans ONScripter-EN</td>
+                </tr>
+                <tr>
+                    <td>ONSlaught</td>
+                    <td>Reconstruction complète de zéro avec SDL2</td>
+                    <td>Abandoné depuis 2015, API médiocre (mais reste utilisable)</td>
+                </tr>
+                <tr>
+                    <td>ONScripter-RU</td>
+                    <td>Support de jeux spécifiques, notamment Umineko</td>
+                    <td>À ne pas utiliser pour d'autres projets</td>
+                </tr>
+                <tr>
+                    <td>ONScripterYuri</td>
+                    <td>Réamélioration d'ONScripter; web, LUA, SDL2, UTF-8</td>
+                    <td>Active; quelques fonctionnalités intéressantes, mais pas autant qu'ONScripter-EN à d'autres égards et lui manque la simplicité &amp; la continuité d'ONScripter-EN</td>
+                </tr>
+                <tr>
+                    <td>Beaucoup d'autre</td>
+                    <td>Une variété de modifications d'ONScripter à travers les années, souvent pour ajouter le support d'une langue ou une fonctionnalité</td>
+                    <td>Plusieurs états (souvent dans l'abandon), mais peu à pas de support</td>
+                </tr>
+                <tr>
+                    <td>ONScripter-EN</td>
+                    <td>L'historique version anglaise, avec un support continue &amp; récemment plus de fonctionnalités de modernisations (sans sacrifier la rétrocompatibilité complète)</td>
+                    <td>Active, supportée, et bien documentée</td>
+                </tr>
+            </table>
+
+            <div class="box quote"><div class="boxheader"><img src=../../icons/quote.png /><h4>Citation</h4></div>
+                <p>"This whole syntax may be considered a bug: it is inconvenient, irregular, and needlessly difficult to parse. Don’t blame me: I didn’t design it, I’m just documenting it."</p>
+                <p>"The entire design of this interpreter is arguably a bug"</p>
+                <p>- A Sekai Project employee, concerning PONScripter
+            </div>
+
+            <h2>Using the API reference</h2>
+            <p>By the time you are done with this guide, you will be very familiar with the API reference (see the "resources" page). It is a reference manual for the scripting language (NScript) which NScripter and derivative games are written in. Observe:</p>
+
+            <div class="box image"><div class="boxheader"><img class="nomalsizepls" src=../../icons/camera.png /><h4>Image</h4></div>
+                <center><img src="../images/0-api.png" /></center>
+            </div>
+            <ol>
+                <li>Command categories</li>
+                <li>List of all commands</li>
+                <li>Main window, showing command and other information, including general information, syntax, and parameters</li>
+            </ol>
+            <br />
+
+            <div class="box image"><div class="boxheader"><img class="nomalsizepls" src=../../icons/camera.png /><h4>Image</h4></div>
+                <center><img src="../images/0-api-detail.png" /></center>
+            </div>
+            <ol>
+                <li>Where the command can be used (definition block, program block, both)</li>
+                <li>Which engines (and engine versions) support the command</li>
+                <li>Command name</li>
+                <li>Command category</li>
+                <li>The numer and types of "arguments" (parameters) which the command accepts</li>
+                <li>A description of the purpose and usage of each argument</li>
+                <li>Command description</li>
+                <li>Maintainer notes concerning niche uses or points of concern</li>
+                <li>Usage examples</li>
+                <li>Related commands</li>
+                <li>General links</li>
+            </ol>
+
+            <div class="box tip"><div class="boxheader"><img src=../../icons/onsen.png /><h4>Tip</h4></div>
+                <p>Use the bloody API reference!!!</p>
+            </div>
+
+            <h2>Division of the guide</h2>
+            <p>As you can tell from the contents page, this guide is higly structured. This is a good thing, not bad - it should make it easier to find relevant information and give you a clear idea of where you are in the guide.</p>
+            <p>Before we begin, we will cover the internals and externals of the engine; those being (1) the associated game files in more detail than before, (2) the setup and operatin of the engine, leading into (2) the syntax of the NScript language, and (4) the structure of game scripts, after which everything external to the engine and also the topics peripheral to working with the internals of the engine (syntax and structure) should have been at least touched upon, allowing us to proceed in detail with the various internal functions of the engine.</p>
+            <p>Then firstly, we will briefly touch on images and backgrounds, allowing us to cover basic usage of commands in-context and produce visible output, letting us discuss (and test with immediately visible results) more of the backend code.</p>
+            <p>Secondly, we will discuss labels, variables, and conditionals, allowing us to manipulate stored data values and the flow of the interpretation of scripts, introducing fundamental structures such as subroutines and loops.</p>
+            <p>Thirdly, we will use this new solid understanding of the interpretation of scripts to begin introducing useful features properly, beginning with text display, the most fundamental feature of a novel game to the user, going into detail on text-display-related features and their correct and effective usage.</p>
+            <p>Fourthly, we will cover choices and buttons in their various forms, allowing for the implementation of user interaction besides simply advancing text.</p>
+            <p>Fifthly, we will cover audio including BGM, SFX, and voicelines, comparing the commands and uses for the different audio formats, including coverage of legacy formats.</p>
+            <p>Sixthly, we will cover more meta-gameplay concepts, namely menus and engine modes.</p>
+            <p>Seventhly, we will touch on other noteworthy and modern (post-2023) features: alternative text display modes, video playback, custom &amp; variable screen resolutions, UTF-8, and proportional fonts.
+            <p>Eighthly and finally, we will discuss the post-production topics of archive formats, compression, packaging and distributing games.</p>
+
+            <br />
+            <p>As a final note, I bring to your attention again that even this is not a <i>complete</i> guide to everything the engine has to offer, either in the commands it provides or how they can be used in interesting ways.</p>
+
+            <!--
+            <div class="box code"><div class="boxheader"><img src=../icons/cog.png /><h4>Code</h4></div>
+                <p>Code, printed in a monospaced font.</p>
+                <p>Beep, boop!</p>
+            </div>
+
+            <div class="box image"><div class="boxheader"><img class="nomalsizepls" src=../icons/camera.png /><h4>Image</h4></div>
+                <center><img src="images/bg.jpg" /></center>
+            </div>
+
+            <div class="box quote"><div class="boxheader"><img src=../icons/quote.png /><h4>Quote</h4></div>
+                <p>Oh, the oak and the ash and the bonny ivy tree</p>
+                <p>They do flourish at home in my own country</p>
+            </div>
+
+            <div class="box tip"><div class="boxheader"><img src=../icons/onsen.png /><h4>Tip</h4></div>
+                <p>If you jump 5 times and then spin clockwise 3 times before spinning the box you get the raygun!!!1!!</p>
+            </div>
+
+            <div class="box warning"><div class="boxheader"><img src=../icons/warning.png /><h4>Warning</h4></div>
+                <p>Don't set fire to your hair (or poke a stick at a grizzly bear).</p>
+            </div>
+            --!>
+        </div>
+    </body>
+</html>
